@@ -1,0 +1,23 @@
+library(readxl)
+library(writexl)
+#####################
+# File path 
+file_path <- "Your/Path/Download_List.xlsx"
+data <- read_excel(file_path, range = "C1:J6212")
+
+# Convert the data frame to a vector and remove any NA values
+concatenated_data <- as.vector(t(data))
+concatenated_data <- concatenated_data[!is.na(concatenated_data)]
+
+# Add commas to each filename
+formatted_data <- paste0(concatenated_data, ',')
+
+# Convert the formatted data to a data frame
+df_concatenated <- data.frame(File_Names = formatted_data)
+
+# Save the formatted data to a text file
+output_file_path <- "Your/Path/Download_List.txt"
+write.table(df_concatenated, file = output_file_path, row.names = FALSE, col.names = FALSE, quote = FALSE)
+
+# Confirmation message
+cat("Data has been successfully saved to", output_file_path)
