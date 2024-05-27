@@ -1,5 +1,5 @@
 # Define the remote and local paths
-$remotePath = "yourdrivenamelinkedwithRclone:/MSWEP_V280/Past/3hourly"
+$remotePath = "your/drive/name/linked/with/Rclone:/MSWEP_V280/Past/3hourly"
 $localPath = "path/to/save/your/files/"
 
 # Example:List of filenames for 1st and 2nd November 2008
